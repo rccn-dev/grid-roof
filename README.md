@@ -17,7 +17,7 @@ cd grid-roof
 uv sync --extra notebook
 ```
 
-For Grasshopper (Rhino 8), see [install](docs/install.md#grasshopper).
+Step by step, with checks: [install](docs/install.md).
 
 ## Quick start
 
@@ -33,14 +33,15 @@ Read them in this order the first time.
 
 | Topic | Page |
 |---|---|
-| installing, for Jupyter and for Grasshopper | [install](docs/install.md) |
+| installing, and checking the install | [install](docs/install.md) |
 | working in the notebook | [notebook](docs/notebook.md) |
 | the steps, and the rule each one keeps | [workflow](docs/workflow.md) |
+| your own design: brief, drawing, a new rule | [your design](docs/your-design.md) |
 | a sample on the Prusa CORE One L or XL | [print](docs/print.md) |
-| starting your own design from this one | [your design](docs/your-design.md) |
-| the same in Grasshopper | [grasshopper](docs/grasshopper.md) |
 | building every piece, at any resolution | [build](docs/build.md) |
-| tests, components, icons | [development](docs/development.md) |
+
+Also: [grasshopper](docs/grasshopper.md), the same steps as Rhino 8 components (optional),
+and [development](docs/development.md), for tests and the components.
 
 ## Related
 

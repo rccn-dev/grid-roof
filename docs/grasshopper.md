@@ -1,7 +1,44 @@
 # Grasshopper
 
-Five components on a *Grid Roof* tab run the same steps as the notebook. Install them with
-[install](install.md#grasshopper).
+Optional. Five components on a *Grid Roof* tab run the same steps as the notebook; nothing
+else in these docs needs them. They need Rhino 8, and the component downloads from the
+two repositories' releases.
+
+## Install
+
+Rhino 8 runs its own Python 3.9, so install both packages into it from the clones in
+[install](install.md). In the `grid-roof` folder:
+
+macOS:
+
+```bash
+~/.rhinocode/py39-rh8/python3.9 -m pip install -e "../compas_vol[meshing,processes]"
+~/.rhinocode/py39-rh8/python3.9 -m pip install --no-deps -e .
+```
+
+Windows (PowerShell):
+
+```powershell
+& "$env:USERPROFILE\.rhinocode\py39-rh8\python.exe" -m pip install -e "..\compas_vol[meshing,processes]"
+& "$env:USERPROFILE\.rhinocode\py39-rh8\python.exe" -m pip install --no-deps -e .
+```
+
+`--no-deps` stops pip from looking for compas_vol on PyPI: it is already installed from the
+clone. If the Rhino Python path is missing, start Rhino 8 once and open the *ScriptEditor*.
+
+Then download `compas_vol-ghuser.zip` from the
+[compas_vol releases](https://github.com/rccn-dev/compas_vol/releases) and
+`grid-roof-ghuser.zip` from the [grid-roof releases](https://github.com/rccn-dev/grid-roof/releases),
+unzip both into Grasshopper's User Object folder (*File › Special Folders › User Object
+Folder*), and restart Rhino.
+
+**Check:** **Volumetric Info** on the *COMPAS Vol* tab lists what is installed, and the
+*Grid Roof* tab holds five components.
+
+| Symptom | Fix |
+|---|---|
+| *Error getting GH_ScriptInstance instance* | install the latest release of the components |
+| a component cannot import `grid_roof` or `compas_vol` | install into Rhino's Python as above, then restart Rhino |
 
 ## Components
 

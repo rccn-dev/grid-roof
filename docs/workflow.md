@@ -8,7 +8,7 @@ the brief and what the steps before it made, and returns its result.
 | | |
 |---|---|
 | `Brief` | every number, in mm, with defaults (`grid_roof/brief.py`); saved as `brief.json` |
-| `Drawing` | light openings and planters as closed outlines, drains as points (`drawing.json`) |
+| `Drawing` | light openings and planters as closed outlines, drains as points (`drawing.json`); make yours with `blob` and `outline` ([your design](your-design.md#the-drawing)) |
 
 ## Steps
 

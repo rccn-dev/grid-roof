@@ -10,20 +10,44 @@ design of your own keeps that shape.
 2. Clone your copy next to compas_vol, as in [install](install.md), and run the
    walkthrough once, unchanged, to see that it works.
 
-Keep the package name `grid_roof`, so the notebook, the scripts and the Grasshopper
-components keep working. Rewrite the README's first paragraph for your design.
+Keep the package name `grid_roof`, so the notebook and the scripts keep working. Rewrite
+the README's first paragraph for your design.
 
 ## Change it, in this order
 
 | | Where | What |
 |---|---|---|
 | 1 | `grid_roof/brief.py` | your numbers and their defaults |
-| 2 | `drawing.json` | your outlines and points: draw them in Rhino with **Roof Drawing** and save ([grasshopper](grasshopper.md#saving-the-drawing)), or edit the numbers |
+| 2 | `drawing.json` | your openings, planters and drains: [the drawing](#the-drawing), below |
 | 3 | `grid_roof/design.py` | change a step, or add one: a step takes the brief and earlier results, and returns its own |
 | 4 | `grid_roof/checks.py` | a check for every rule you add |
 | 5 | `tests/` | a test that the rule holds |
 
 Change one thing, rerun the notebook from that step, look, run the tests, then commit.
+
+## The drawing
+
+`drawing.json` holds the openings and planters as closed outlines and the drains as points,
+all in mm on the 18 × 12 m plan, with the origin at a corner. Make yours in Step 2 of the
+notebook, in place of `roof.Drawing.load("drawing.json")`:
+
+```python
+from compas.geometry import Point
+
+drawing = roof.Drawing(
+    openings=[roof.blob((9000, 9000), 900, seed=1)],                                     # organic, about 1.8 m across
+    planters=[roof.outline([(2000, 2000), (4000, 2000), (4000, 3500), (2000, 3500)])],   # corners, in order
+    drains=[Point(x, y, 0) for x in (4500, 10500, 16500) for y in (1500, 10500)],          # one in every bay
+)
+drawing.save("drawing.json")
+```
+
+`roof.blob(centre, radius, seed)` is the organic shape the sample uses; `roof.outline`
+takes corners. Keep openings and planters off the beams, which run along every 6 m grid
+line; Step 9 shows what happens to light that crosses one. Water needs a drain within reach:
+with only two drains on the whole roof, the water check reports puddles. Try it.
+
+If you have Rhino, you can also draw the curves there ([grasshopper](grasshopper.md)).
 
 ## Example: a new rule
 

@@ -41,7 +41,7 @@ from .design import (
     weathering,
 )
 from .drainage import Drainage, Incision
-from .drawing import Drawing
+from .drawing import Drawing, blob, outline
 from .heightfield import VolHeightField
 from .kit import beam_bands, grid_kit
 from .spinodoid import Spinodoid
@@ -62,6 +62,7 @@ __all__ = [
     "beam_bands",
     "beam_depth",
     "beams",
+    "blob",
     "box",
     "carve",
     "clear_apertures",
@@ -70,6 +71,7 @@ __all__ = [
     "grid_kit",
     "keep",
     "kit",
+    "outline",
     "plan_mask",
     "nodes",
     "preview",

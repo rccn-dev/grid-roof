@@ -16,8 +16,7 @@ uv run python print_sample.py panel_0_1_00 --printer xl # checked against the XL
 ```
 
 `--scale 25` prints smaller. The same is Step 15 in the notebook (`PRINT = True` in
-Step 1) and **Roof Print** in Grasshopper. It uses your `brief.json` and `drawing.json`
-when they are there.
+Step 1). It uses your `brief.json` and `drawing.json` when they are there.
 
 At 1:20, measured on the CORE One L with the settings below:
 
